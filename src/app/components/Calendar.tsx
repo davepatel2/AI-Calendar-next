@@ -21,7 +21,6 @@ type Props = {
 export default function Calendar({ events }: Props) {
   const [currentMonth, setCurrentMonth] = useState(() => {
     const now = new Date();
-    // Normalize to the first day of the current month to ensure consistent server/client render
     return new Date(now.getFullYear(), now.getMonth(), 1);
   });
 
@@ -52,7 +51,7 @@ export default function Calendar({ events }: Props) {
     const rows = [];
     let day = start;
 
-    // Calculate today's date once and normalize it to avoid hydration mismatches
+
     const today = new Date();
     const normalizedToday = new Date(today.getFullYear(), today.getMonth(), today.getDate());
 
@@ -62,7 +61,7 @@ export default function Calendar({ events }: Props) {
       for (let i = 0; i < 7; i++) {
         const formatted = format(day, 'd');
         const dateKey = format(day, 'yyyy-MM-dd');
-        const isToday = isSameDay(day, normalizedToday); // Use the normalized today
+        const isToday = isSameDay(day, normalizedToday);
         const inMonth = isSameMonth(day, currentMonth);
         const dayEvents = events
         .filter((e) => e.date === dateKey)

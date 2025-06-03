@@ -67,7 +67,7 @@ Always respond with a valid JSON matching the exact format above.
 
   try {
     const json = JSON.parse(data.choices[0].message.content);
-    console.log('[AI EVENT JSON]:', json); // 🔥 Logs full event object
+    console.log('[AI EVENT JSON]:', json); 
     return NextResponse.json(json); 
   } catch (err) {
     console.error('[PARSE ERROR]', err);

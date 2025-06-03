@@ -33,7 +33,7 @@ export default function ChatInput({ onEventsParsed }: Props) {
         const rawData = await res.json();
         console.log('[RAW AI RESPONSE]', rawData);
   
-        onEventsParsed([rawData]); // wrap in array
+        onEventsParsed([rawData]);
       } catch (err) {
         console.error('AI Error:', err);
       }
